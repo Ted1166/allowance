@@ -1,0 +1,27 @@
+{
+    "name": "allowance",
+    "private": true,
+    "version": "0.1.0",
+    "packageManager": "pnpm@9.15.0",
+    "scripts": {
+        "build:program": "anchor build",
+        "test": "anchor test",
+        "keys": "tsx scripts/generate-keys.ts",
+        "test-mint": "tsx scripts/create-test-mint.ts",
+        "setup:accounts": "tsx scripts/setup-accounts.ts",
+        "init:demo": "tsx scripts/init-demo.ts",
+        "dev:server": "pnpm --filter @allowance/server dev",
+        "dev:app": "pnpm --filter @allowance/app dev",
+        "attacks": "pnpm --filter @allowance/agent attacks",
+        "agent": "pnpm --filter @allowance/agent start",
+        "typecheck": "pnpm -r typecheck"
+    },
+    "devDependencies": {
+        "@allowance/shared": "workspace:*",
+        "@solana/spl-token": "^0.4.9",
+        "@solana/web3.js": "^1.98.0",
+        "@types/node": "^22.10.0",
+        "tsx": "^4.19.2",
+        "typescript": "^5.7.2"
+    }
+}

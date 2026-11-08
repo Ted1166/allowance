@@ -1,0 +1,19 @@
+[toolchain]
+package_manager = "pnpm"
+
+[features]
+resolution = true
+skip-lint = false
+
+[programs.localnet]
+allowance = "Aox3NVkTRv1Z3A5ACFAN1ubmjTzu3QjJg8wSZqheP2JE"
+
+[programs.devnet]
+allowance = "Aox3NVkTRv1Z3A5ACFAN1ubmjTzu3QjJg8wSZqheP2JE"
+
+[provider]
+cluster = "devnet"
+wallet = "~/.config/solana/id.json"
+
+[scripts]
+test = "pnpm exec node --import tsx --test tests/policy.test.ts tests/attack.test.ts"

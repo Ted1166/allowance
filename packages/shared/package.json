@@ -1,0 +1,25 @@
+{
+    "name": "@allowance/shared",
+    "version": "0.1.0",
+    "private": true,
+    "type": "module",
+    "exports": {
+        ".": "./src/index.ts",
+        "./node": "./src/node.ts"
+    },
+    "scripts": {
+        "typecheck": "tsc -p tsconfig.json"
+    },
+    "dependencies": {
+        "@noble/hashes": "^1.8.0",
+        "@solana/spl-token": "^0.4.9",
+        "@solana/web3.js": "^1.98.0",
+        "bs58": "^6.0.0",
+        "buffer": "^6.0.3",
+        "dotenv": "^16.4.7"
+    },
+    "devDependencies": {
+        "@types/node": "^22.10.0",
+        "typescript": "^5.7.2"
+    }
+}

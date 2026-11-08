@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    background: #eef1f4;
+  }
+
+  body {
+    @apply bg-paper font-body text-ink antialiased;
+    font-feature-settings: "tnum" 1;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display tracking-tight;
+  }
+
+  :focus-visible {
+    outline: 2px solid #0f6b66;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center rounded-sm px-4 py-2 text-sm font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .btn-primary {
+    @apply btn bg-ink text-paper hover:bg-ledger;
+  }
+
+  .btn-quiet {
+    @apply btn border border-line text-ink hover:bg-wash;
+  }
+
+  .btn-danger {
+    @apply btn bg-alarm text-white hover:bg-[#a52d19];
+  }
+
+  .field {
+    @apply w-full rounded-sm border border-line bg-white px-3 py-2 text-sm text-ink placeholder:text-slate;
+  }
+
+  .label {
+    @apply mb-1 block text-sm text-slate;
+  }
+
+  .section {
+    @apply border-t border-line pt-6;
+  }
+}
+
+.wallet-adapter-button {
+  font-family: inherit !important;
+  font-size: 0.875rem !important;
+  height: 2.25rem !important;
+  border-radius: 2px !important;
+  background: #14202b !important;
+  padding: 0 1rem !important;
+}
+
+.wallet-adapter-button:not([disabled]):hover {
+  background: #0f6b66 !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}

@@ -1,0 +1,24 @@
+[package]
+name = "allowance"
+version = "0.1.0"
+description = "Spending policies for AI agents on Solana"
+edition = "2024"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "allowance"
+
+[features]
+default = []
+cpi = ["no-entrypoint"]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+idl-build = ["anchor-lang/idl-build", "anchor-spl/idl-build"]
+anchor-debug = []
+custom-heap = []
+custom-panic = []
+
+[dependencies]
+anchor-lang = "0.31.1"
+anchor-spl = "0.31.1"
