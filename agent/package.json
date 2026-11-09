@@ -9,6 +9,7 @@
     "scripts": {
         "attacks": "tsx src/cli.ts attacks",
         "start": "tsx src/cli.ts agent",
+    "buy": "tsx src/cli.ts buy",
         "typecheck": "tsc -p tsconfig.json"
     },
     "dependencies": {

@@ -17,7 +17,7 @@ async function main() {
     console.error(`Minted ${amount} test tokens to ${owner.publicKey.toBase58()}`);
 }
 
-main().catch((error) => {
+main().then(() => process.exit(0)).catch((error) => {
     console.error(error instanceof Error ? error.message : error);
     process.exit(1);
 });

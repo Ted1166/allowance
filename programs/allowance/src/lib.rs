@@ -7,7 +7,7 @@ pub mod state;
 
 use instructions::*;
 
-declare_id!("Aox3NVkTRv1Z3A5ACFAN1ubmjTzu3QjJg8wSZqheP2JE");
+declare_id!("CBB2oPofX2GmqYcCK2K5CNgjioLwigHXDhoB8U8D3Cwk");
 
 #[program]
 pub mod allowance {

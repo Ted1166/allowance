@@ -5,11 +5,14 @@ package_manager = "pnpm"
 resolution = true
 skip-lint = false
 
+[programs.devnet]
+allowance = "CBB2oPofX2GmqYcCK2K5CNgjioLwigHXDhoB8U8D3Cwk"
+
 [programs.localnet]
 allowance = "Aox3NVkTRv1Z3A5ACFAN1ubmjTzu3QjJg8wSZqheP2JE"
 
-[programs.devnet]
-allowance = "Aox3NVkTRv1Z3A5ACFAN1ubmjTzu3QjJg8wSZqheP2JE"
+[registry]
+url = "https://api.apr.dev"
 
 [provider]
 cluster = "devnet"

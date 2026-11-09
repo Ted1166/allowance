@@ -1,6 +1,6 @@
 import cors from "cors";
 import express from "express";
-import { ATTACKS, createAgentContext, runAgent, runAttack } from "@allowance/agent";
+import { ATTACKS, createAgentContext, payingFetch, runAgent, runAttack } from "@allowance/agent";
 import type { AttackName, ConfigView } from "@allowance/shared";
 import { auroraRoutes } from "./aurora/routes";
 import { loadConfig } from "./config";
@@ -68,6 +68,20 @@ app.post("/api/demo/agent", async (req, res) => {
     } catch (error) {
         res.status(500).json({ error: error instanceof Error ? error.message : "Agent failed" });
     }
+});
+
+app.post("/api/demo/buy", async (req, res) => {
+  const route = typeof req.body?.route === "string" ? req.body.route : "";
+  if (!/^\/paid\/[a-z0-9/_-]+$/i.test(route)) {
+    res.status(400).json({ error: "route must start with /paid/" });
+    return;
+  }
+  try {
+    const result = await payingFetch(agentContext, `${config.publicUrl}${route}`);
+    res.json({ paid: result.paid, signature: result.signature, error: result.error, body: result.body });
+  } catch (error) {
+    res.status(500).json({ error: error instanceof Error ? error.message : "Purchase failed" });
+  }
 });
 
 app.use(merchantRoutes({ config, receipts, challenges: new ChallengeBook() }));

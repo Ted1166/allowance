@@ -37,7 +37,7 @@ async function main() {
     console.log(`Allowance created: ${explorerTx(signature, env.network)}`);
 }
 
-main().catch((error) => {
+main().then(() => process.exit(0)).catch((error) => {
     console.error(error instanceof Error ? error.message : error);
     process.exit(1);
 });

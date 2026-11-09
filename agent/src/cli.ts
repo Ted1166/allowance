@@ -1,5 +1,5 @@
 import type { AttackName } from "@allowance/shared";
-import { ATTACKS, createAgentContext, runAgent, runAttack } from "./index";
+import { ATTACKS, createAgentContext, payingFetch, runAgent, runAttack } from "./index";
 
 async function main() {
     const [command, ...rest] = process.argv.slice(2);
@@ -19,7 +19,18 @@ async function main() {
         return;
     }
 
-    if (command === "agent") {
+    if (command === "buy") {
+    const route = rest[0] ?? "/paid/weather";
+    const result = await payingFetch(ctx, `${ctx.serverUrl}${route}`);
+    console.log(`status:    ${result.status}`);
+    console.log(`paid:      ${result.paid}`);
+    if (result.signature) console.log(`signature: ${result.signature}`);
+    if (result.error) console.log(`error:     ${result.error}`);
+    console.log(result.body);
+    return;
+  }
+
+  if (command === "agent") {
         const task = rest.join(" ") || `Get the weather from ${ctx.serverUrl}/paid/weather and tell me what it says.`;
         const run = await runAgent(ctx, task);
         for (const step of run.steps) console.log(`${step.tool} ${JSON.stringify(step.input)}\n  ${step.output}`);
