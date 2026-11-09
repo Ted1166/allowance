@@ -21,7 +21,7 @@ export type ServerConfig = {
 
 export function loadConfig(): ServerConfig {
     const env = loadEnv();
-    const port = Number(process.env.SERVER_PORT ?? 4021);
+    const port = Number(process.env.SERVER_PORT ?? process.env.PORT ?? 4021);
     return {
         network: env.network,
         caip2: NETWORKS[env.network].caip2,
